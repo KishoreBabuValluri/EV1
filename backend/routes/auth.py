@@ -43,7 +43,7 @@ def login():
     data = request.get_json()
     email = data.get("email", "").lower().strip()
     password = data.get("password", "")
-
+    print("called login api")
     user = User.query.filter_by(email=email).first()
     if not user or not user.check_password(password):
         return jsonify({"error": "Invalid email or password"}), 401
@@ -65,6 +65,7 @@ def me():
 @auth_bp.route("/demo-login", methods=["POST"])
 def demo_login():
     """Quick login with demo credentials for each role."""
+    print("called login api")
     role = request.get_json().get("role")
     demo_emails = {
         "landowner": "landowner@demo.com",

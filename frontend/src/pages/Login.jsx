@@ -19,11 +19,11 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
-    console.log("lofin detailssss",form)
     e.preventDefault()
     setLoading(true)
     try {
       await login(form.email, form.password)
+      alert("login sucessss")
       toast.success('Welcome back!')
       navigate('/dashboard')
     } catch (err) {
@@ -37,6 +37,7 @@ export default function Login() {
     setLoading(true)
     try {
       await demoLogin(role)
+      alert("demo login sucesss")
       toast.success(`Logged in as demo ${role}`)
       navigate('/dashboard')
     } catch (err) {
