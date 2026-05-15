@@ -130,4 +130,8 @@ if __name__ == "__main__":
     # app = create_app()
     debug = os.getenv("FLASK_ENV", "development") != "production"
     # threaded=True is required for SSE — each client holds a long-lived connection
-    app.run(debug=debug, port=int(os.getenv("PORT", 5000)), threaded=True)
+    # app.run(debug=debug, port=int(os.getenv("PORT", 5000)), threaded=True)
+
+    # Render injects PORT env var — must bind 0.0.0.0 (not localhost)
+    port = int(os.getenv("PORT", 5000))
+    app.run(debug=debug, host="0.0.0.0", port=port, threaded=True)
