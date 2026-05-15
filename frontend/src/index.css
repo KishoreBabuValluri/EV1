@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    background: #0a0f1e;
+    color: #e8f0fe;
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #111827; }
+  ::-webkit-scrollbar-thumb { background: #1e2d45; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2d4060; }
+}
+
+@layer components {
+  .ev-card {
+    @apply bg-ev-card border border-ev-border rounded-2xl p-5;
+  }
+  .ev-btn-primary {
+    @apply bg-ev-accent text-ev-bg font-semibold rounded-xl px-5 py-2.5 
+           hover:bg-green-400 transition-all duration-200 text-sm font-head
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .ev-btn-outline {
+    @apply border border-ev-accent text-ev-accent rounded-xl px-4 py-2 text-sm
+           hover:bg-ev-accent/10 transition-all duration-200;
+  }
+  .ev-btn-ghost {
+    @apply text-ev-muted border border-ev-border rounded-xl px-4 py-2 text-sm
+           hover:text-ev-text hover:border-ev-accent/50 transition-all duration-200;
+  }
+  .ev-input {
+    @apply w-full bg-ev-surface border border-ev-border rounded-xl px-4 py-2.5 text-sm
+           text-ev-text placeholder-ev-muted outline-none transition-all duration-200
+           focus:border-ev-accent;
+  }
+  .ev-select {
+    @apply w-full bg-ev-surface border border-ev-border rounded-xl px-4 py-2.5 text-sm
+           text-ev-text outline-none;
+  }
+  .ev-label {
+    @apply block text-xs text-ev-muted uppercase tracking-wider mb-1.5;
+  }
+  .ev-badge {
+    @apply text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide;
+  }
+  .badge-active { @apply bg-green-500/15 text-ev-accent; }
+  .badge-pending { @apply bg-yellow-500/15 text-ev-warn; }
+  .badge-new { @apply bg-blue-500/15 text-ev-accent2; }
+  .badge-error { @apply bg-red-500/15 text-red-400; }
+  .stat-card {
+    @apply bg-ev-card border border-ev-border rounded-2xl p-5;
+  }
+  .sidebar-item {
+    @apply flex items-center gap-3 px-5 py-2.5 text-sm text-ev-muted cursor-pointer
+           transition-all duration-200 border-l-2 border-transparent
+           hover:text-ev-text hover:bg-white/[0.03];
+  }
+  .sidebar-item.active {
+    @apply text-ev-accent bg-ev-accent/[0.06] border-l-ev-accent;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,229,160,0.4); }
+  50% { box-shadow: 0 0 20px rgba(0,229,160,0.8); }
+}
+.animate-fade-in { animation: fadeIn 0.4s ease forwards; }
+.animate-slide-in { animation: slideIn 0.3s ease forwards; }
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }

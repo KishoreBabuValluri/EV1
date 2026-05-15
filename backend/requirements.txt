@@ -1,0 +1,17 @@
+flask
+flask-cors
+flask-jwt-extended
+flask-sqlalchemy
+flask-limiter
+python-dotenv
+werkzeug
+anthropic
+langchain
+langchain-anthropic
+langgraph
+langchain-core
+sqlalchemy
+gunicorn
+razorpay
+websockets
+cachetools
